@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# README.md  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview  
+This project involves using **Google AI Studio** to generate prompts for the **Gemini API**, setting up a **Python application**, and containerizing it using **Docker**. The goal is to ensure the application runs smoothly in a controlled environment and can interact with the AI model efficiently.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 1. Chosen Prompt  
+I used the following prompt in **Google AI Studio**:  
 
-### `npm start`
+> *"Generate a response for a chatbot that provides helpful and concise answers to users' questions about technology."*  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This prompt was tested and refined to ensure clear and informative responses from the Gemini API.  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 2. Obtaining the Code  
+1. I accessed **Google AI Studio** and tested the chosen prompt.  
+2. Once satisfied, I copied the sample API request code (Python).  
+3. I created a local project folder and saved the code in a file named **app.py**.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for  information.
+---
 
-### `npm run build`
+## 3. Setting Up the Docker Container  
+1. **Install Docker** (if not installed) from [Docker's official website](https://www.docker.com/).  
+2. **Create a `Dockerfile`** in the project folder and add the following content:  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```Dockerfile
+   # Use an official Python runtime as a base image
+   FROM python:3.9
 
-The build is minified and the filenames include  hashes.\
-Your app is ready to be deployed!
+   # Set the working directory
+   WORKDIR /app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   # Copy the project files
+   COPY . .
 
-### `npm run eject`
+   # Install dependencies
+   RUN pip install -r requirements.txt
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   # Expose port for the application
+   EXPOSE 5000
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   # Command to run the application
+   CMD ["python", "app.py"]
+   ```  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Create a `requirements.txt`** file with necessary dependencies:  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```
+   flask
+   google-generativeai
+   requests
+   ```  
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 4. Running the Code Locally with Docker  
+1. **Build the Docker image**:  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```sh
+   docker build -t my-ai-app .
+   ```  
 
-### Code Splitting
+2. **Run the container**:  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```sh
+   docker run -p 5000:5000 my-ai-app
+   ```  
 
-### Analyzing the Bundle Size
+3. **Access the application**: Open **http://localhost:5000/** in a web browser to see the AI responses.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 5. Screenshot of the Running Application  
+A screenshot of the application running on **http://localhost/** is included in the GitHub repository.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion  
+This project helped me understand **AI prompt engineering**, **Docker containerization**, and how to deploy an AI-powered Python application. I also learned how to troubleshoot dependency issues and optimize the **Dockerfile** for better performance.
