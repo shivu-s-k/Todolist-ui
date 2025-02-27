@@ -16,8 +16,8 @@ This prompt was tested and refined to ensure clear and informative responses fro
 
 ## 2. Obtaining the Code  
 1. I accessed **Google AI Studio** and tested the chosen prompt.  
-2. Once satisfied, I copied the sample API request code (Python).  
-3. I created a local project folder and saved the code in a file named **app.py**.  
+2. Once satisfied, I copied the sample API request code.  
+3. I created a local project folder and saved the code in a file .  
 
 ---
 
@@ -27,7 +27,7 @@ This prompt was tested and refined to ensure clear and informative responses fro
 
    ```Dockerfile
    # Use an official Python runtime as a base image
-   FROM python:3.9
+   FROM node:14 
 
    # Set the working directory
    WORKDIR /app
@@ -42,7 +42,7 @@ This prompt was tested and refined to ensure clear and informative responses fro
    EXPOSE 5000
 
    # Command to run the application
-   CMD ["python", "app.py"]
+   CMD ["npm", "start"]
    ```  
 
 3. **Create a `requirements.txt`** file with necessary dependencies:  
