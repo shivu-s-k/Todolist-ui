@@ -1,7 +1,7 @@
 # README.md  
 
 ## Project Overview  
-This project involves using **Google AI Studio** to generate prompts for the **Gemini API**, setting up a **Python application**, and containerizing it using **Docker**. The goal is to ensure the application runs smoothly in a controlled environment and can interact with the AI model efficiently.  
+This project involves using **Google AI Studio** to generate prompts for the **Gemini API**, setting up a **node js application**, and containerizing it using **Docker**. The goal is to ensure the application runs smoothly in a controlled environment and can interact with the AI model efficiently.  
 
 ---
 
