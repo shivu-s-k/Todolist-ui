@@ -78,4 +78,4 @@ A screenshot of the application running on **http://localhost/** is included in 
 ---
 
 ## Conclusion  
-This project helped me understand **AI prompt engineering**, **Docker containerization**, and how to deploy an AI-powered Python application. I also learned how to troubleshoot dependency issues and optimize the **Dockerfile** for better performance.
+This project helped me understand **AI prompt engineering**, **Docker containerization**, and how to deploy an AI-powered nodejs application. I also learned how to troubleshoot dependency issues and optimize the **Dockerfile** for better performance.
